@@ -5,6 +5,7 @@
 #include "config.h"
 #include "db.h"
 #include "gen.h"
+#include "timer.h"
 SettingsGyver sett("AI Фоторамка v" F_VERSION, &db);
 sets::Timer gentmr;
 

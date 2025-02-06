@@ -191,6 +191,32 @@ class Kandinsky {
         ghttp::Client http(client, host.str(), FUSION_PORT);
 
         ghttp::Client::Headers headers;
+        
+        ///////////////////////////////////////
+        headers.add("Accept", "application/json, text/plain, */*");
+        headers.add("Accept-Language", "ru-RU,ru;q=0.9,en;q=0.8");
+
+        headers.add("Cache-Control", "no-cache");
+        headers.add("Connection", "keep-alive");
+
+        headers.add("DNT", "1");
+
+        headers.add("Host", "cdn.fusionbrain.ai");
+        headers.add("Origin", "cdn.fusionbrain.ai");
+        headers.add("Referer", "cdn.fusionbrain.ai");
+
+        headers.add("Sec-fetch-dest", "document");
+        headers.add("Sec-fetch-mode", "navigate");
+        headers.add("Sec-fetch-site", "none");
+        headers.add("Sec-fetch-user", "?1");
+
+        headers.add("Upgrade-Insecure-Requests", "1");
+        headers.add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36");
+        headers.add("Sec-ch-ua", "Google Chrome;v=131, Chromium;v=131, Not_A Brand;v=24");
+        headers.add("Sec-ch-ua-mobile", "?0");
+        headers.add("Sec-ch-ua-platform", "Windows");
+        //////////////////////////////////////////////////////
+
         headers.add("X-Key", _api_key);
         headers.add("X-Secret", _secret_key);
 
