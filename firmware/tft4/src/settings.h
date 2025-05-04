@@ -92,5 +92,5 @@ void sett_tick() {
         ota.tick();
     }
     sett.tick();
-    if (gentmr) generate();
+    if (gentmr.tick()) generate();
 }
