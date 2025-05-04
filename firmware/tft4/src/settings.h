@@ -1,11 +1,11 @@
 #pragma once
 #include <AutoOTA.h>
 #include <SettingsGyver.h>
-
 #include "config.h"
 #include "db.h"
 #include "gen.h"
 #include "timer.h"
+
 SettingsGyver sett("AI Фоторамка v" F_VERSION, &db);
 sets::Timer gentmr;
 
@@ -77,7 +77,7 @@ void build(sets::Builder& b) {
 
 void update(sets::Updater& u) {
     u.update(SH("status"), gen.status);
-    if (ota.hasUpdate()) u.update("update"_h, "Доступно обновление. Обновить прошивку?");
+    if (ENABLE_OTA && ota.hasUpdate()) u.update("update"_h, "Доступно обновление. Обновить прошивку?");
 }
 
 void sett_init() {
@@ -88,7 +88,9 @@ void sett_init() {
 }
 
 void sett_tick() {
-    ota.tick();
+    if (ENABLE_OTA) {
+        ota.tick();
+    }
     sett.tick();
     if (gentmr) generate();
 }

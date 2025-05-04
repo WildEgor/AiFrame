@@ -1,8 +1,9 @@
 #pragma once
 #include "Kandinsky/Kandinsky.h"
-
 #include "config.h"
+
 Kandinsky gen;
+
 bool gen_flag = 0;
 
 void generate() {

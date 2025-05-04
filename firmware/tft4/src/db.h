@@ -1,6 +1,7 @@
 #pragma once
 #include <GyverDBFile.h>
 #include <LittleFS.h>
+
 GyverDBFile db(&LittleFS, "settings.db");
 
 enum kk : size_t {
