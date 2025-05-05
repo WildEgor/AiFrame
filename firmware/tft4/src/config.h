@@ -10,3 +10,6 @@
 #define ENABLE_OTA false
 #define TFT_eTFT false
 #define TFT_Adafruit true
+// #define WEATHER
+#define MY_LAT 55.645609
+#define MY_LON 37.391890

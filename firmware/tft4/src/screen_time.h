@@ -6,6 +6,11 @@
 
 static int w, h, timeX, timeY, lastMinute = -1;
 static uint8_t textSize;
+bool need_update;
+
+void trigger_update() {
+  need_update = true;
+}
 
 void ntpGetTime()
 {
@@ -26,8 +31,14 @@ void ntpGetTime()
   NTP.onSecond([](){
     Datime dt = NTP;
 
+
     if (dt.minute != lastMinute) {
       lastMinute = dt.minute;
+      need_update = true;
+    }
+
+    if (need_update) {
+      need_update = false;
       
       if (tft_render){
         // print time with black background
@@ -50,6 +61,8 @@ void ntpGetTime()
       }
     }
   });
+
+  gen.onRenderEnd(trigger_update);
 }
 
 void time_tick() {

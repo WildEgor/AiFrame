@@ -84,6 +84,7 @@ void sett_init() {
     sett.begin();
     sett.onBuild(build);
     sett.onUpdate(update);
+    generate();
     init_tmr();
 }
 

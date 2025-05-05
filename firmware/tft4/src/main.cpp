@@ -5,6 +5,7 @@
 #include "settings.h"
 #include "tft.h"
 #include "screen_time.h"
+#include "weather.h"
 
 void setup() {
     Serial.begin(115200);
@@ -13,6 +14,7 @@ void setup() {
     db_init();
     sett_init();
     tft_init();
+    weather_init();
 
     // ======= AI =======
     gen.setKey(db[kk::kand_token], db[kk::kand_secret]);
@@ -111,4 +113,5 @@ void loop() {
     sett_tick();
     gen_tick();
     time_tick();
+    weather_tick();
 }
