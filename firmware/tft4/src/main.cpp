@@ -4,8 +4,7 @@
 #include "gen.h"
 #include "settings.h"
 #include "tft.h"
-#include "screen_time.h"
-#include "weather.h"
+#include "screen_info.h"
 
 void setup() {
     Serial.begin(115200);
@@ -14,6 +13,7 @@ void setup() {
     db_init();
     sett_init();
     tft_init();
+    ntp_init();
     weather_init();
 
     // ======= AI =======
@@ -86,27 +86,6 @@ void setup() {
         WiFi.mode(WIFI_STA);
         ota.checkUpdate();
     }
-
-    #if defined(TIME)
-    // ======== TIME ========
-    w = tft.width();
-    h = tft.height();
-    textSize = w / 7 / 6; //размер высота
-    timeX = (w - (textSize * 5 * 6)) / 3;
-    timeY = h - (textSize * 8) - 10;
-    tft.println(w);
-    Serial.print(w);
-    tft.println('x');
-    Serial.print('x');
-    tft.println(h);
-    Serial.println(h);
-    tft.print(F("Clock text size: "));
-    Serial.print(F("Clock text size: "));
-    tft.println(textSize);
-    Serial.println(textSize);
-    ntpGetTime();
-    // ======== TIME ========
-    #endif
 }
 
 void loop() {
