@@ -38,6 +38,9 @@
         "cstdlib": "cpp",
         "ctime": "cpp",
         "cwctype": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp"
     }
 }

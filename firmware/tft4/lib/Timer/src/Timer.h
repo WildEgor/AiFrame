@@ -1,8 +1,6 @@
 #pragma once
 #include <Arduino.h>
 
-// простой таймер как в GyverHub
-
 #define SETS_TMR_INTERVAL 0
 #define SETS_TMR_TIMEOUT 1
 #define SETS_TMR_INTERVAL_OFF 2

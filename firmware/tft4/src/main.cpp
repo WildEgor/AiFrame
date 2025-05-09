@@ -5,10 +5,11 @@
 #include "settings.h"
 #include "tft.h"
 #include "screen_info.h"
+#include "macros.h"
 
 void setup() {
-    Serial.begin(115200);
-    Serial.println();
+    // Comment this if you want to disable serial printing
+    SERIAL_DEBUG;
 
     db_init();
     sett_init();
@@ -78,11 +79,11 @@ void setup() {
     tft.println();
 
     tft.println("Ready!");
-    Serial.println("Ready!");
+    Sprintln("Ready!");
 
     if (WiFi.status() == WL_CONNECTED && ENABLE_OTA) {
         tft.println("Check OTA updates...");
-        Serial.println("Check OTA updates...");
+        Sprintln("Check OTA updates...");
         WiFi.mode(WIFI_STA);
         ota.checkUpdate();
     }

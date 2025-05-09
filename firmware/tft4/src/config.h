@@ -1,5 +1,4 @@
 #pragma once
-
 // common 
 #define F_VERSION "1.1"
 #define DISP_WIDTH 320
@@ -14,7 +13,6 @@
 #define WEATHER
 #define MY_LAT 55.645609
 #define MY_LON 37.391890
-
 // tft
 #define ST7796_DRIVER
 #define TFT_WIDTH  320
@@ -36,3 +34,6 @@
 #define SPI_FREQUENCY  40000000
 #define SPI_TOUCH_FREQUENCY  2500000
 #define SUPPORT_TRANSACTIONS
+// system
+#define SERIAL_PRINTING
+#define ESP_SERIAL_BAUD 115200

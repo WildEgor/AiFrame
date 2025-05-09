@@ -1,10 +1,10 @@
 #pragma once
 #include <AutoOTA.h>
 #include <SettingsGyver.h>
+#include "Timer.h"
 #include "config.h"
 #include "db.h"
 #include "gen.h"
-#include "timer.h"
 
 SettingsGyver sett("AI Фоторамка v" F_VERSION, &db);
 sets::Timer gentmr;
@@ -31,6 +31,10 @@ void build(sets::Builder& b) {
         sets::Group g(b, "Автогенерация");
         b.Switch(kk::auto_gen, "Включить");
         b.Time(kk::auto_prd, "Период");
+    }
+    {
+        sets::Group g(b, "Погода");
+        b.Switch(kk::use_weather_prompts, "Включить");
     }
     {
         sets::Group g(b, "Настройки");

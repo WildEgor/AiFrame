@@ -14,6 +14,7 @@ enum kk : size_t {
     gen_style,
     auto_gen,
     auto_prd,
+    use_weather_prompts,
 };
 
 void db_init() {
@@ -30,4 +31,5 @@ void db_init() {
 
     db.init(kk::auto_gen, 0);
     db.init(kk::auto_prd, 60);
+    db.init(kk::use_weather_prompts, 0);
 }

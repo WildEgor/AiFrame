@@ -1,9 +1,9 @@
 #pragma once
+#include <Adafruit_GFX.h>
+#include "Adafruit_ST7796S_kbv.h"
 #include "SPI.h"
 #include "gen.h"
 #include "config.h"
-#include <Adafruit_GFX.h>
-#include "Adafruit_ST7796S_kbv.h"
 
 Adafruit_ST7796S_kbv tft(TFT_CS, TFT_DC, TFT_RST);
 

@@ -1,43 +1,20 @@
 #pragma once
 #include <Arduino.h>
+#include <GyverNTP.h>   
 #include "tft.h"
 #include "gen.h"
-#include <GyverNTP.h>   
-#include <Weather/Weather.h>
-
-Weather weather = Weather(MY_LAT, MY_LON);
-
-int get_curr_temp(int hour) {
-  #ifdef WEATHER
-  float currT = weather.temps[hour];
-  return round(currT);
-  #endif
-  return 0;
-}
-
-void weather_tick() 
-{
-  #ifdef WEATHER
-  weather.tick();
-  #endif
-}
-
-void weather_init() 
-{
-  #ifdef WEATHER
-  #endif
-}
-
-
-static int timeX, timeY, lastMinute = -1;
-static uint8_t textSize = 3;
-bool need_update;
+#include "macros.h"
+#include "weather.h"
 
 #if defined(TIME)
     int clockBarHeight = 80;
 #else
     int clockBarHeight = 0;
 #endif
+
+static int timeX, timeY, lastMinute = -1;
+static uint8_t textSize = 3;
+bool need_update;
 
 void screen_time_init(){
   #if defined(TIME)
@@ -61,14 +38,14 @@ void ntp_init()
   NTP.begin(TZ);
   NTP.setPeriod(300); // every 5 min
 
-  Serial.print(F("Waiting for NTP time sync: "));
+  Sprint(F("Waiting for NTP time sync: "));
   tft.setTextColor(0x07E0);
   tft.print(F("Waiting for NTP time sync: "));
   
   NTP.updateNow();
   
   String dt = NTP.dateToString();
-  Serial.println(dt);
+  Sprintln(dt);
 
   NTP.onSecond([](){
     Datime dt = NTP;

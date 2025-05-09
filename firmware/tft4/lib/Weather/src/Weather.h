@@ -12,6 +12,11 @@ class Weather {
         _lon = lon;
     }
 
+    void setCoordinates(float lat, float lon) {
+        _lat = lat;
+        _lon = lon;
+    }
+
     bool get() {
         return get(_lat, _lon);
     }
@@ -112,3 +117,5 @@ class Weather {
         wind_mid[idx] /= (t1 - t0);
     }
 };
+
+extern Weather weather;
